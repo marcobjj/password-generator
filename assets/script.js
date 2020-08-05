@@ -12,11 +12,12 @@ var lowerChars = upperChars.toLocaleLowerCase();
 var minLength = 8;
 var maxLength = 128;
 
-var num = true;
-var special = true;
-var lower = true;
-var upper = true;
-var passLength = 28;
+var num = false;
+var special = false;
+var lower = false;
+var upper = false;
+
+var passLength = 8;
 
 
 
@@ -31,6 +32,13 @@ function writePassword(generatedPass) {
 
 
 function generatePassword() {
+
+  special = document.getElementById("special").checked;
+  num = document.getElementById("num").checked;
+  lower = document.getElementById("lower").checked;
+  upper = document.getElementById("upper").checked;
+
+  alert(special);
 
   if(validatePassword(special,lower,upper,num,passLength)) 
   {
@@ -77,6 +85,7 @@ function validatePassword(special, lower, upper, num, length) {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
+
 
 
 // String Shuffle utility (  source: https://www.codespeedy.com/shuffle-characters-of-a-string-in-javascript/   )
