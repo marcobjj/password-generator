@@ -38,7 +38,8 @@ function generatePassword() {
   lower = document.getElementById("lower").checked;
   upper = document.getElementById("upper").checked;
 
-  alert(special);
+
+  passLength = document.getElementById("length").value;
 
   if(validatePassword(special,lower,upper,num,passLength)) 
   {
@@ -49,8 +50,10 @@ function generatePassword() {
   if(num) {chars += numChars; pass += getRandomChar(numChars); }
   if(special) { chars +=specialChars; pass += getRandomChar(specialChars); }
   if(lower) { chars +=lowerChars;  pass += getRandomChar(lowerChars); }
-  if(upper) { chars +=upperChars;  pass += getRandomChar(upperChars); }
+  
+  if(upper) {  chars +=upperChars;  pass += getRandomChar(upperChars); }
 
+  
 
   var i = pass.length;
 
@@ -66,7 +69,6 @@ function generatePassword() {
 
  
 //randomize and write it to html
-alert(pass);
 
 writePassword(shuffle(pass));
   
