@@ -54,9 +54,16 @@ function generatePassword() {
 
 // if a password has been generated it returns the app back to characters and length prompts
 
-  if(STATE == "generated") { reset(); STATE = ""; return}
+  if(STATE == "generated") 
+  
+  { 
+     reset();
+     STATE = ""; 
+     return
+  
+  }
 
-    loadForms();
+  loadForms();
 
   if(validatePassword(special,lower,upper,num,passLength)) 
   {
