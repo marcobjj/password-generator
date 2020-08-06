@@ -51,7 +51,7 @@ header {
 }
 
 .card-body {
-  min-height: 100px;
+  min-height: 140px;
 }
 
 .card-footer {
@@ -70,6 +70,12 @@ header {
   content: " ";
   display: block;
   clear: both;
+}
+
+.options {
+
+
+  margin:5px;
 }
 
 .btn {

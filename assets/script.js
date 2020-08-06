@@ -19,6 +19,10 @@ var upper = false;
 
 var passLength = 8;
 
+var STATE = "";
+
+reset();
+
 
 
 // Write password to the #password input
@@ -28,10 +32,26 @@ function writePassword(generatedPass) {
 
  passwordText.textContent = password;
 
+ document.getElementById("options").style.display = "none";
+ document.getElementById("password").style.display = "inline";
+
+
+
+}
+
+function reset()
+{
+
+  document.getElementById("password").style.display = "none";
+  document.getElementById("options").style.display = "inline";
+
 }
 
 
 function generatePassword() {
+
+
+  if(STATE == "generated") { reset(); STATE = ""; return}
 
   special = document.getElementById("special").checked;
   num = document.getElementById("num").checked;
@@ -48,7 +68,9 @@ function generatePassword() {
   var chars = "";
 
   if(num) {chars += numChars; pass += getRandomChar(numChars); }
+
   if(special) { chars +=specialChars; pass += getRandomChar(specialChars); }
+
   if(lower) { chars +=lowerChars;  pass += getRandomChar(lowerChars); }
   
   if(upper) {  chars +=upperChars;  pass += getRandomChar(upperChars); }
@@ -66,7 +88,7 @@ function generatePassword() {
   }
 
  
-
+STATE = "generated";
  
 //randomize and write it to html
 
